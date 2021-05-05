@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "888652648996",
+    "project_id": "movieadvisor-bc01c",
+    "storage_bucket": "movieadvisor-bc01c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:888652648996:android:9dce9b9497b75af3f27eb1",
+        "android_client_info": {
+          "package_name": "com.beratemir.movieadvisor"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "888652648996-miou5nj2ficcandr86upu16bfl345r9p.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBUsVUiPP5Ukow1bFMvei2gZcHDi0PC3us"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "888652648996-miou5nj2ficcandr86upu16bfl345r9p.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
