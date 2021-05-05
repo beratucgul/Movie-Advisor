@@ -10,5 +10,7 @@ public class denemeDomates extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_deneme_domates);
+
+        int a = 5;
     }
 }
