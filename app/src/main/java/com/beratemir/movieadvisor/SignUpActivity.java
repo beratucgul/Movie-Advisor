@@ -3,6 +3,7 @@ package com.beratemir.movieadvisor;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -13,8 +14,9 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
-public class MainActivity extends AppCompatActivity {
+public class SignUpActivity extends AppCompatActivity {
 
     EditText emailText, passwordText;
     Button signInButton, signUpButton;
@@ -22,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_signup);
 
         emailText = findViewById(R.id.emailText);
         passwordText = findViewById(R.id.passwordText);
@@ -31,9 +33,32 @@ public class MainActivity extends AppCompatActivity {
 
         firebaseAuth= FirebaseAuth.getInstance();
 
+        FirebaseUser firebaseUser = firebaseAuth.getCurrentUser();
+
+        if(firebaseUser != null) {
+            Intent intent = new Intent(SignUpActivity.this, FeedActivity.class);
+            startActivity(intent);
+        }
+
     }
 
     public void signInClick(View view) {
+        String email = emailText.getText().toString();
+        String password = passwordText.getText().toString();
+
+        firebaseAuth.signInWithEmailAndPassword(email,password).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
+            @Override
+            public void onSuccess(AuthResult authResult) {
+
+                Intent intent= new Intent(SignUpActivity.this, FeedActivity.class);
+                startActivity(intent);
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                Toast.makeText(SignUpActivity.this, e.getLocalizedMessage(),Toast.LENGTH_LONG).show();
+            }
+        });
     }
 
     public void signUpClick(View view) {
@@ -41,17 +66,18 @@ public class MainActivity extends AppCompatActivity {
         String email = emailText.getText().toString();
         String password = passwordText.getText().toString();
 
-
-
         firebaseAuth.createUserWithEmailAndPassword(email,password).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
             @Override
             public void onSuccess(AuthResult authResult) {
-                Toast.makeText(MainActivity.this, "User Created", Toast.LENGTH_SHORT).show();
+                Toast.makeText(SignUpActivity.this, "User Created", Toast.LENGTH_SHORT).show();
+
+                Intent intent = new Intent(SignUpActivity.this,FeedActivity.class);
+                startActivity(intent);
             }
         }).addOnFailureListener(new OnFailureListener() {
             @Override
             public void onFailure(@NonNull Exception e) {
-                Toast.makeText(MainActivity.this, e.getLocalizedMessage(),Toast.LENGTH_LONG).show();
+                Toast.makeText(SignUpActivity.this, e.getLocalizedMessage(),Toast.LENGTH_LONG).show();
             }
         });
     }
