@@ -6,4 +6,132 @@
     android:layout_height="match_parent"
     tools:context=".UploadActivity">
 
+    <LinearLayout
+        android:id="@+id/MainLinear"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:weightSum="8"
+        android:orientation="vertical">
+
+
+        <LinearLayout
+            android:id="@+id/pictureLinear"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="2"
+            android:background="@color/purple_200"
+            android:orientation="horizontal"
+            android:weightSum="1">
+
+
+            <ImageView
+                android:id="@+id/onizlemeView"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_margin="20dp"
+                android:layout_weight="1"
+                android:onClick="selectFromGallery"
+                tools:srcCompat="@drawable/defaultmovie" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/infoLinear"
+            android:layout_weight="1"
+            android:weightSum="2"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:id="@+id/nameLinear"
+                android:layout_width="0dp"
+
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:weightSum="5"
+                tools:srcCompat="@tools:sample/avatars" >
+
+                <TextView
+                    android:id="@+id/adTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="2"
+                    android:background="@color/purple_500"
+                    android:gravity="center"
+                    android:text="Filmin Adı "
+                    android:textColor="@color/white"></TextView>
+                <EditText
+                    android:id="@+id/adEditText"
+                    android:layout_width="match_parent"
+android:layout_marginBottom="0dp"
+                    android:backgroundTint="@color/purple_200"
+                    android:layout_height="0dp"
+                    android:layout_weight="3">
+
+                </EditText>
+
+            </LinearLayout>
+            <LinearLayout
+                android:orientation="vertical"
+                android:id="@+id/genreLinear"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:text="Button" >
+
+                <TextView
+                    android:id="@+id/genreTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="2"
+                    android:background="@color/purple_500"
+                    android:gravity="center"
+                    android:text="Filmin Türü "
+                    android:textColor="@color/white"></TextView>
+
+                <Spinner
+                    android:id="@+id/spinner"
+                    android:layout_width="match_parent"
+                    android:backgroundTint="@color/purple_200"
+                    android:layout_height="0dp"
+                    android:layout_weight="3" />
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <EditText
+            android:id="@+id/editTextFilminKonusu"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="2"
+            android:ems="10"
+            android:textColorHint="@color/purple_200"
+            android:backgroundTint="@color/purple_200"
+
+            android:hint="Filmin Konusu" />
+
+        <EditText
+            android:id="@+id/editTextYourComment"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="2"
+            android:textColorHint="@color/purple_200"
+            android:backgroundTint="@color/purple_200"
+            android:ems="10"
+android:hint="Your Comment"
+            />
+
+        <Button
+            android:id="@+id/createButton"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:text="Create And Share Your Movie !" />
+
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
