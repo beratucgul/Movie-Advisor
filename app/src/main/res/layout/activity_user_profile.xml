@@ -1,0 +1,292 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".UserProfileActivity">
+
+
+    <LinearLayout
+        android:id="@+id/mainVertical"
+        android:weightSum="4"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+
+            android:id="@+id/firstHorizontal"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="horizontal"
+            android:layout_weight="1"
+            android:weightSum="2"
+            >
+
+            <ImageView
+                android:id="@+id/userProfile"
+                android:src="@drawable/polat"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_margin="5dp"
+                android:layout_weight="1"
+                ></ImageView>
+            <LinearLayout
+                android:orientation="vertical"
+                android:id="@+id/infosLinear"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:weightSum="3">
+
+                <TextView
+                    android:id="@+id/fullNameText"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_margin="10dp"
+                    android:layout_weight="1"
+                    android:textColor="@color/black"
+                    android:autoSizeTextType="uniform"
+                    android:text="Efe Karahanlı"
+                    android:textAlignment="center">
+
+                </TextView>
+                <TextView
+                    android:id="@+id/ageText"
+                    android:text="24 Yaşında"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:textColor="@color/black"
+                    android:textAlignment="center"
+                    android:layout_margin="10dp"
+                    android:autoSizeTextType="uniform"
+                    android:layout_weight="1"
+                    >
+
+                </TextView>
+                <TextView
+                    android:id="@+id/genresText"
+                    android:text="Sevdiği Tür: Romantik/Komedi"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:textColor="@color/black"
+                    android:textAlignment="center"
+                    android:layout_margin="10dp"
+                    android:autoSizeTextType="uniform"
+                    android:layout_weight="1">
+
+                </TextView>
+
+            </LinearLayout>
+
+
+
+        </LinearLayout>
+<LinearLayout
+    android:id="@+id/firstVertical"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="0dp"
+    android:layout_weight="3"
+    android:weightSum="18">
+
+
+
+    <LinearLayout
+        android:id="@+id/secondHorizontal"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:weightSum="2">
+
+        <TextView
+            android:id="@+id/filmlerText"
+            android:layout_width="0dp"
+            android:layout_marginLeft="5dp"
+            android:textColor="@color/black"
+            android:autoSizeTextType="uniform"
+            android:text="Önerdiği Filmler :"
+            android:layout_height="match_parent"
+            android:layout_weight="1"></TextView>
+    </LinearLayout>
+
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="17">
+
+        <GridLayout
+            android:id="@+id/filmlerLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:columnCount="12"
+            android:rowCount="2">
+
+
+            <LinearLayout
+                android:id="@+id/filmLayout"
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:layout_row="0"
+                android:layout_column="0"
+                android:orientation="vertical"
+                android:weightSum="10">
+
+                <ImageView
+                    android:id="@+id/essekView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_weight="9"
+                    tools:src="@drawable/essek" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Eşşek Dönüyor 2"
+                    android:textAlignment="center"
+                    android:textColor="@color/black"></TextView>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/film2Layout"
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:layout_row="0"
+                android:layout_column="1"
+                android:orientation="vertical"
+                android:weightSum="10">
+
+                <ImageView
+                    android:id="@+id/essek2View"
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_weight="9"
+                    tools:src="@drawable/essek" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Eşşek Dönüyor 2"
+                    android:textAlignment="center"
+                    android:textColor="@color/black"></TextView>
+
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/film3Layout"
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:layout_row="0"
+                android:layout_column="3"
+                android:orientation="vertical"
+                android:weightSum="10">
+
+                <ImageView
+                    android:id="@+id/essek3View"
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_weight="9"
+                    tools:src="@drawable/essek" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Eşşek Dönüyor 2"
+                    android:textAlignment="center"
+                    android:textColor="@color/black"></TextView>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/film4Layout"
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:layout_row="1"
+                android:layout_column="0"
+                android:orientation="vertical"
+                android:weightSum="10">
+
+                <ImageView
+                    android:id="@+id/essek4View"
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_weight="9"
+                    tools:src="@drawable/essek" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Eşşek Dönüyor 2"
+                    android:textAlignment="center"
+                    android:textColor="@color/black"></TextView>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/film5Layout"
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:layout_row="1"
+                android:layout_column="1"
+                android:orientation="vertical"
+                android:weightSum="10">
+
+                <ImageView
+                    android:id="@+id/essek5View"
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_weight="9"
+                    tools:src="@drawable/essek" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Eşşek Dönüyor 2"
+                    android:textAlignment="center"
+                    android:textColor="@color/black"></TextView>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/film6Layout"
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:layout_row="1"
+                android:layout_column="2"
+                android:orientation="vertical"
+                android:weightSum="10">
+
+                <ImageView
+                    android:id="@+id/essek6View"
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_weight="9"
+                    tools:src="@drawable/essek" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Eşşek Dönüyor 2"
+                    android:textAlignment="center"
+                    android:textColor="@color/black"></TextView>
+
+            </LinearLayout>
+        </GridLayout>
+
+    </HorizontalScrollView>
+
+
+</LinearLayout>
+
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
