@@ -65,9 +65,9 @@
                     android:text="Filmin Adı "
                     android:textColor="@color/white"></TextView>
                 <EditText
-                    android:id="@+id/adEditText"
+                    android:id="@+id/movieName"
                     android:layout_width="match_parent"
-android:layout_marginBottom="0dp"
+                    android:layout_marginBottom="0dp"
                     android:backgroundTint="@color/purple_200"
                     android:layout_height="0dp"
                     android:layout_weight="3">
@@ -95,7 +95,7 @@ android:layout_marginBottom="0dp"
                     android:textColor="@color/white"></TextView>
 
                 <Spinner
-                    android:id="@+id/spinner"
+                    android:id="@+id/movieType"
                     android:layout_width="match_parent"
                     android:backgroundTint="@color/purple_200"
                     android:layout_height="0dp"
@@ -105,7 +105,7 @@ android:layout_marginBottom="0dp"
         </LinearLayout>
 
         <EditText
-            android:id="@+id/editTextFilminKonusu"
+            android:id="@+id/movieTopic"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="2"
@@ -116,14 +116,14 @@ android:layout_marginBottom="0dp"
             android:hint="Filmin Konusu" />
 
         <EditText
-            android:id="@+id/editTextYourComment"
+            android:id="@+id/movieComment"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="2"
             android:textColorHint="@color/purple_200"
             android:backgroundTint="@color/purple_200"
             android:ems="10"
-android:hint="Your Comment"
+            android:hint="Your Comment"
             />
 
         <Button
