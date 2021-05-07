@@ -1,6 +1,7 @@
 package com.beratemir.movieadvisor;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -8,13 +9,26 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.DocumentChange;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.EventListener;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreException;
+import com.google.firebase.firestore.Query;
+import com.google.firebase.firestore.QuerySnapshot;
+
+import java.util.Map;
 
 public class FeedActivity extends AppCompatActivity {
 
     private FirebaseAuth firebaseAuth;
+    private FirebaseFirestore firebaseFirestore;
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -39,9 +53,6 @@ public class FeedActivity extends AppCompatActivity {
             startActivity(intent);
             finish();
         }
-
-
-
         return super.onOptionsItemSelected(item);
     }
 
@@ -51,5 +62,46 @@ public class FeedActivity extends AppCompatActivity {
         setContentView(R.layout.activity_feed2);
 
         firebaseAuth = FirebaseAuth.getInstance();
+        firebaseFirestore = FirebaseFirestore.getInstance();
+
+        getDataFromFirestore();
+    }
+
+    public void getDataFromFirestore() {
+
+        CollectionReference collectionReference = firebaseFirestore.collection("Posts");
+
+        collectionReference.orderBy("date", Query.Direction.DESCENDING).addSnapshotListener(new EventListener<QuerySnapshot>() {
+            @Override
+            public void onEvent(@Nullable QuerySnapshot value, @Nullable FirebaseFirestoreException error) {
+
+                if(error != null) {
+                    Toast.makeText(FeedActivity.this, error.getLocalizedMessage(),Toast.LENGTH_LONG).show();
+                }
+
+                if(value != null) {
+
+                    for(DocumentSnapshot snapshot : value.getDocuments()) {
+
+                        Map<String, Object> data = snapshot.getData();
+
+                        String mName = (String) data.get("moviename");
+                        String mTopic = (String) data.get("movietopic");
+                        String mType = (String) data.get("movietype");
+                        String mComment = (String) data.get("moviecomment");
+                        String mEmail = (String) data.get("useremail");
+                        String mDownloadUrl = (String) data.get("downloadurl");
+
+                        System.out.println("ilk deneme "+mComment);
+
+                    }
+
+                }
+
+            }
+        });
+
+
+
     }
 }
