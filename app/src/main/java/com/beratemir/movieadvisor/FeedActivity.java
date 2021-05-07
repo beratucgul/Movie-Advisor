@@ -22,12 +22,20 @@ import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QuerySnapshot;
 
+import java.util.ArrayList;
 import java.util.Map;
 
 public class FeedActivity extends AppCompatActivity {
 
     private FirebaseAuth firebaseAuth;
     private FirebaseFirestore firebaseFirestore;
+    ArrayList<String> userEmailFromFB;
+    ArrayList<String> movieCommentFromFB;
+    ArrayList<String> movieNameFromFB;
+    ArrayList<String> movieTopicFromFB;
+    ArrayList<String> movieTypeFromFB;
+    ArrayList<String> userImageFromFB;
+
 
 
     @Override
@@ -64,6 +72,13 @@ public class FeedActivity extends AppCompatActivity {
         firebaseAuth = FirebaseAuth.getInstance();
         firebaseFirestore = FirebaseFirestore.getInstance();
 
+        userEmailFromFB = new ArrayList<>();
+        userImageFromFB = new ArrayList<>();
+        movieCommentFromFB = new ArrayList<>();
+        movieNameFromFB = new ArrayList<>();
+        movieTopicFromFB = new ArrayList<>();
+        movieTypeFromFB = new ArrayList<>();
+
         getDataFromFirestore();
     }
 
@@ -92,7 +107,12 @@ public class FeedActivity extends AppCompatActivity {
                         String mEmail = (String) data.get("useremail");
                         String mDownloadUrl = (String) data.get("downloadurl");
 
-                        System.out.println("ilk deneme "+mComment);
+                        userEmailFromFB.add(mEmail);
+                        userImageFromFB.add(mDownloadUrl);
+                        movieCommentFromFB.add(mComment);
+                        movieNameFromFB.add(mName);
+                        movieTopicFromFB.add(mTopic);
+                        movieTypeFromFB.add(mType);
 
                     }
 
