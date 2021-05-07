@@ -11,8 +11,11 @@ import android.os.Build;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -23,21 +26,30 @@ import androidx.core.content.ContextCompat;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FieldValue;
+import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.UUID;
 
 public class UploadActivity extends AppCompatActivity {
 
-
+    EditText movieName,movieTopic,movieComment;
+    Spinner movieType;
     ImageView onizlemeView;
     Bitmap selectedImg;
     private FirebaseStorage firebaseStorage;
     private StorageReference storageReference;
     Uri imageUri;
+    private FirebaseFirestore firebaseFirestore;
+    private FirebaseAuth firebaseAuth;
 
 
     @Override
@@ -45,12 +57,27 @@ public class UploadActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_upload);
 
+
+        String[] movieTypes = new String[] {
+            "Action", "Adventure","Horror","Comedy"
+        };
+        movieType = findViewById(R.id.movieType);
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, movieTypes);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        movieType.setAdapter(adapter);
+
+
+
         onizlemeView = findViewById(R.id.onizlemeView);
+        movieName = findViewById(R.id.movieName);
+        movieTopic = findViewById(R.id.movieTopic);
+        movieComment = findViewById(R.id.movieComment);
 
 
         firebaseStorage = FirebaseStorage.getInstance();
         storageReference = firebaseStorage.getReference();
-
+        firebaseFirestore = FirebaseFirestore.getInstance();
+        firebaseAuth = FirebaseAuth.getInstance();
 
     }
 
@@ -131,6 +158,40 @@ public class UploadActivity extends AppCompatActivity {
                         public void onSuccess(Uri uri) {
 
                             String downloadUrl = uri.toString();
+
+                            FirebaseUser firebaseUser = firebaseAuth.getCurrentUser();
+                            String userEmail = firebaseUser.getEmail();
+
+                            String movieComments = movieComment.getText().toString();
+                            String movieNames = movieName.getText().toString();
+                            String movieTopics = movieTopic.getText().toString();
+                            String movieTypes = movieType.getSelectedItem().toString();
+
+                            HashMap<String, Object> postData = new HashMap<>();
+                            postData.put("useremail", userEmail);
+                            postData.put("downloadurl", downloadUrl);
+                            postData.put("moviename", movieNames);
+                            postData.put("movietype", movieTypes);
+                            postData.put("movietopic", movieTopics);
+                            postData.put("moviecomment", movieComments);
+                            postData.put("date", FieldValue.serverTimestamp());
+
+                            firebaseFirestore.collection("Posts").add(postData).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                                @Override
+                                public void onSuccess(DocumentReference documentReference) {
+
+                                    Intent intent = new Intent(UploadActivity.this, FeedActivity.class);
+                                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                                    startActivity(intent);
+
+
+                                }
+                            }).addOnFailureListener(new OnFailureListener() {
+                                @Override
+                                public void onFailure(@NonNull Exception e) {
+                                    Toast.makeText(UploadActivity.this, e.getLocalizedMessage(),Toast.LENGTH_LONG).show();
+                                }
+                            });
 
                         }
                     });
