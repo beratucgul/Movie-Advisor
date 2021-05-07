@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/recyclerview_row_useremail_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="user email"
+        android:paddingLeft="10dp"
+        android:paddingBottom="5dp"
+        android:paddingTop="5dp"/>
+
+    <ImageView
+        android:id="@+id/recyclerview_row_imageview"
+        android:layout_width="250dp"
+        android:layout_height="180dp"
+        tools:srcCompat="@tools:sample/avatars"
+        android:layout_gravity="center"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp">
+
+        <TextView
+            android:id="@+id/recyclerview_row_moviename"
+            android:layout_width="175dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="10dp"
+            android:textAlignment="center" />
+
+        <TextView
+            android:id="@+id/recyclerview_row_movietype"
+            android:layout_width="175dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="45dp"
+            android:textAlignment="center" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/recyclerview_row_movietopic"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        android:paddingLeft="10dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"/>
+
+    <TextView
+        android:id="@+id/recyclerview_row_moviecomment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        android:paddingLeft="10dp"
+        android:paddingBottom="10dp"
+        android:paddingTop="10dp"/>
+
+</LinearLayout>
