@@ -3,6 +3,8 @@ package com.beratemir.movieadvisor;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -35,6 +37,8 @@ public class FeedActivity extends AppCompatActivity {
     ArrayList<String> movieTopicFromFB;
     ArrayList<String> movieTypeFromFB;
     ArrayList<String> userImageFromFB;
+
+    FeedRecyclerAdapter feedRecyclerAdapter;
 
 
 
@@ -80,6 +84,15 @@ public class FeedActivity extends AppCompatActivity {
         movieTypeFromFB = new ArrayList<>();
 
         getDataFromFirestore();
+
+
+        RecyclerView recyclerView = findViewById(R.id.recyclerView);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+        feedRecyclerAdapter = new FeedRecyclerAdapter(userEmailFromFB,movieCommentFromFB,movieNameFromFB,
+                movieTypeFromFB,movieTopicFromFB,userImageFromFB);
+
+        recyclerView.setAdapter(feedRecyclerAdapter);
     }
 
     public void getDataFromFirestore() {
@@ -113,6 +126,8 @@ public class FeedActivity extends AppCompatActivity {
                         movieNameFromFB.add(mName);
                         movieTopicFromFB.add(mTopic);
                         movieTypeFromFB.add(mType);
+
+                        feedRecyclerAdapter.notifyDataSetChanged();
 
                     }
 
