@@ -131,7 +131,8 @@ android:hint="Your Comment"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:text="Create And Share Your Movie !" />
+            android:text="Create And Share Your Movie !"
+            android:onClick="upload"/>
 
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
