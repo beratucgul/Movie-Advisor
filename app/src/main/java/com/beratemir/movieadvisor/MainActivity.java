@@ -19,7 +19,6 @@ public class MainActivity extends AppCompatActivity {
     EditText emailText, passwordText;
     Button signInButton, signUpButton;
     private FirebaseAuth firebaseAuth;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
         signInButton = findViewById(R.id.signInButton);
         signUpButton = findViewById(R.id.signUpButton);
 
-        firebaseAuth = FirebaseAuth.getInstance();
+        firebaseAuth= FirebaseAuth.getInstance();
 
     }
 
@@ -43,7 +42,8 @@ public class MainActivity extends AppCompatActivity {
         String password = passwordText.getText().toString();
 
 
-        firebaseAuth.createUserWithEmailAndPassword(email, password).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
+
+        firebaseAuth.createUserWithEmailAndPassword(email,password).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
             @Override
             public void onSuccess(AuthResult authResult) {
                 Toast.makeText(MainActivity.this, "User Created", Toast.LENGTH_SHORT).show();
@@ -51,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
         }).addOnFailureListener(new OnFailureListener() {
             @Override
             public void onFailure(@NonNull Exception e) {
-                Toast.makeText(MainActivity.this, e.getLocalizedMessage(), Toast.LENGTH_LONG).show();
+                Toast.makeText(MainActivity.this, e.getLocalizedMessage(),Toast.LENGTH_LONG).show();
             }
         });
     }
