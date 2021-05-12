@@ -3,7 +3,7 @@
     package="com.beratemir.movieadvisor">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -12,7 +12,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MovieAdvisor">
-        <activity android:name=".UploadActivity"></activity>
+        <activity android:name=".userProfilePage"></activity>
+        <activity android:name=".UploadActivity" />
         <activity android:name=".FeedActivity" />
         <activity android:name=".SignUpActivity">
             <intent-filter>
