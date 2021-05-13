@@ -113,10 +113,10 @@ public class FeedActivity extends AppCompatActivity {
 
                         Map<String, Object> data = snapshot.getData();
 
-                        String mName = (String) data.get("moviename");
+                        String mName = "Name: " +(String) data.get("moviename");
                         String mTopic = (String) data.get("movietopic");
-                        String mType = (String) data.get("movietype");
-                        String mComment = (String) data.get("moviecomment");
+                        String mType = "Genre/" +(String) data.get("movietype");
+                        String mComment = "\" "+(String) data.get("moviecomment") +" \"";
                         String mEmail = (String) data.get("useremail");
                         String mDownloadUrl = (String) data.get("downloadurl");
 
