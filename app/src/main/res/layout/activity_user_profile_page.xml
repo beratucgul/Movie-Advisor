@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:background="@color/purple_200"
     android:layout_height="match_parent"
     tools:context=".userProfilePage">
 
@@ -27,12 +28,16 @@
 
             <ImageView
                 android:id="@+id/userProfile"
-                android:src="@drawable/polat"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_margin="5dp"
                 android:layout_weight="1"
-                ></ImageView>
+
+                android:background="@drawable/purplebackground"
+
+                android:padding="15dp"
+
+                android:src="@drawable/polat"></ImageView>
             <LinearLayout
                 android:orientation="vertical"
                 android:id="@+id/infosLinear"
@@ -45,9 +50,10 @@
                     android:id="@+id/fullNameText"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
+                    android:background="@drawable/border_radius"
                     android:layout_margin="10dp"
                     android:layout_weight="1"
-                    android:textColor="@color/black"
+                    android:textColor="@color/white"
                     android:autoSizeTextType="uniform"
                     android:text="Efe Karahanlı"
                     android:textAlignment="center">
@@ -58,7 +64,8 @@
                     android:text="24 Yaşında"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
-                    android:textColor="@color/black"
+                    android:background="@drawable/border_radius"
+                    android:textColor="@color/white"
                     android:textAlignment="center"
                     android:layout_margin="10dp"
                     android:autoSizeTextType="uniform"
@@ -68,12 +75,14 @@
                 </TextView>
                 <TextView
                     android:id="@+id/genresText"
-                    android:text="Sevdiği Tür: Romantik/Komedi"
+                    android:text="Favori: Romantik/Komedi"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
-                    android:textColor="@color/black"
-                    android:textAlignment="center"
+                    android:background="@drawable/border_radius"
+                    android:textColor="@color/white"
+                    android:gravity="center"
                     android:layout_margin="10dp"
+                    android:padding="4dp"
                     android:autoSizeTextType="uniform"
                     android:layout_weight="1">
 
@@ -89,6 +98,7 @@
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="0dp"
+
             android:layout_weight="3"
             android:weightSum="18">
 
@@ -98,15 +108,17 @@
                 android:id="@+id/secondHorizontal"
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
+                android:layout_marginBottom="10dp"
                 android:layout_height="0dp"
                 android:layout_weight="1"
+                android:background="@drawable/border"
                 android:weightSum="2">
 
                 <TextView
                     android:id="@+id/filmlerText"
                     android:layout_width="0dp"
                     android:layout_marginLeft="5dp"
-                    android:textColor="@color/black"
+                    android:textColor="@color/white"
                     android:autoSizeTextType="uniform"
                     android:text="Önerdiği Filmler :"
                     android:layout_height="match_parent"
@@ -131,7 +143,10 @@
                         android:layout_width="200dp"
                         android:layout_height="200dp"
                         android:layout_row="0"
+                        android:padding="8dp"
+                        android:background="@drawable/empty_border"
                         android:layout_column="0"
+
                         android:orientation="vertical"
                         android:weightSum="10">
 
@@ -147,7 +162,7 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:text="Eşşek Dönüyor 2"
-                            android:textAlignment="center"
+                            android:gravity="center"
                             android:textColor="@color/black"></TextView>
 
                     </LinearLayout>
@@ -157,6 +172,8 @@
                         android:layout_width="200dp"
                         android:layout_height="200dp"
                         android:layout_row="0"
+                        android:padding="8dp"
+                        android:background="@drawable/empty_border"
                         android:layout_column="1"
                         android:orientation="vertical"
                         android:weightSum="10">
@@ -173,7 +190,7 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:text="Eşşek Dönüyor 2"
-                            android:textAlignment="center"
+                            android:gravity="center"
                             android:textColor="@color/black"></TextView>
 
                     </LinearLayout>
@@ -198,7 +215,7 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:text="Eşşek Dönüyor 2"
-                            android:textAlignment="center"
+                            android:gravity="center"
                             android:textColor="@color/black"></TextView>
 
                     </LinearLayout>
@@ -208,6 +225,8 @@
                         android:layout_width="200dp"
                         android:layout_height="200dp"
                         android:layout_row="1"
+                        android:padding="8dp"
+                        android:background="@drawable/empty_border"
                         android:layout_column="0"
                         android:orientation="vertical"
                         android:weightSum="10">
@@ -224,7 +243,7 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:text="Eşşek Dönüyor 2"
-                            android:textAlignment="center"
+                            android:gravity="center"
                             android:textColor="@color/black"></TextView>
 
                     </LinearLayout>
@@ -233,6 +252,8 @@
                         android:id="@+id/film5Layout"
                         android:layout_width="200dp"
                         android:layout_height="200dp"
+                        android:padding="8dp"
+                        android:background="@drawable/empty_border"
                         android:layout_row="1"
                         android:layout_column="1"
                         android:orientation="vertical"
@@ -250,7 +271,7 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:text="Eşşek Dönüyor 2"
-                            android:textAlignment="center"
+                            android:gravity="center"
                             android:textColor="@color/black"></TextView>
 
                     </LinearLayout>
@@ -259,6 +280,8 @@
                         android:id="@+id/film6Layout"
                         android:layout_width="200dp"
                         android:layout_height="200dp"
+                        android:padding="8dp"
+                        android:background="@drawable/empty_border"
                         android:layout_row="1"
                         android:layout_column="2"
                         android:orientation="vertical"
@@ -276,7 +299,7 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:text="Eşşek Dönüyor 2"
-                            android:textAlignment="center"
+                            android:gravity="center"
                             android:textColor="@color/black"></TextView>
 
                     </LinearLayout>
