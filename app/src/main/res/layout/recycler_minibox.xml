@@ -1,0 +1,41 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/mainLinear"
+    android:weightSum="13"
+    android:orientation="vertical"
+    >
+
+
+    <LinearLayout
+        android:id="@+id/filmLayout"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_row="0"
+        android:padding="8dp"
+        android:background="@drawable/empty_border"
+        android:layout_column="0"
+
+        android:orientation="vertical"
+        android:weightSum="10">
+
+        <ImageView
+            android:id="@+id/essekView"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="9"
+            tools:src="@drawable/essek" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Eşşek Dönüyor 2"
+            android:gravity="center"
+            android:textColor="@color/black"></TextView>
+
+
+
+</LinearLayout></LinearLayout>

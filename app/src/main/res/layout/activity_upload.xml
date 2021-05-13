@@ -32,7 +32,7 @@
                 android:layout_margin="20dp"
                 android:layout_weight="1"
                 android:onClick="selectFromGallery"
-                tools:srcCompat="@drawable/defaultmovie" />
+                app:srcCompat="@drawable/defaultmovie" />
 
 
         </LinearLayout>
@@ -49,7 +49,7 @@
                 android:orientation="vertical"
                 android:id="@+id/nameLinear"
                 android:layout_width="0dp"
-
+                android:background="@drawable/empty_border"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:weightSum="5"
@@ -67,8 +67,9 @@
                 <EditText
                     android:id="@+id/movieName"
                     android:layout_width="match_parent"
+                    android:backgroundTint="@color/purple_500"
                     android:layout_marginBottom="0dp"
-                    android:backgroundTint="@color/purple_200"
+
                     android:layout_height="0dp"
                     android:layout_weight="3">
 
@@ -79,6 +80,7 @@
                 android:orientation="vertical"
                 android:id="@+id/genreLinear"
                 android:layout_width="0dp"
+                android:background="@drawable/empty_border"
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
                 android:layout_weight="1"
@@ -97,7 +99,7 @@
                 <Spinner
                     android:id="@+id/movieType"
                     android:layout_width="match_parent"
-                    android:backgroundTint="@color/purple_200"
+                    android:backgroundTint="@color/purple_500"
                     android:layout_height="0dp"
                     android:layout_weight="3" />
 
@@ -109,9 +111,11 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="2"
+            android:padding="6dp"
+            android:background="@drawable/empty_border"
             android:ems="10"
             android:textColorHint="@color/purple_200"
-            android:backgroundTint="@color/purple_200"
+
 
             android:hint="Filmin Konusu" />
 
@@ -119,9 +123,10 @@
             android:id="@+id/movieComment"
             android:layout_width="match_parent"
             android:layout_height="0dp"
+            android:background="@drawable/empty_border"
             android:layout_weight="2"
+            android:padding="6dp"
             android:textColorHint="@color/purple_200"
-            android:backgroundTint="@color/purple_200"
             android:ems="10"
             android:hint="Your Comment"
             />
@@ -131,7 +136,7 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:text="Create And Share Your Movie !"
+            android:text="Share Your Movie !"
             android:onClick="upload"/>
 
     </LinearLayout>

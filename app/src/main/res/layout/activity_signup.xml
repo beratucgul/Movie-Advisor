@@ -4,57 +4,85 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/purple_200"
     tools:context=".SignUpActivity">
 
-    <EditText
-        android:id="@+id/emailText"
-        android:layout_width="300dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="87dp"
-        android:layout_marginBottom="30dp"
-        android:inputType="textEmailAddress"
-        android:hint="Email"
-        app:layout_constraintBottom_toTopOf="@+id/passwordText"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:weightSum="10"
+        android:orientation="vertical">
 
-    <EditText
-        android:id="@+id/passwordText"
-        android:layout_width="300dp"
-        android:layout_height="50dp"
-        android:layout_marginBottom="513dp"
-        android:hint="Password"
-        android:inputType="textPassword"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/emailText" />
+        <EditText
+            android:id="@+id/emailText"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_margin="10dp"
+           android:layout_weight="1"
+            android:inputType="textEmailAddress"
+            android:textColorHint="@color/purple_500"
+            android:background="@drawable/empty_border"
+            android:padding="6dp"
+            android:hint="Email"
+            />
 
-    <Button
-        android:id="@+id/signInButton"
-        android:layout_width="100dp"
-        android:layout_height="50dp"
-        app:layout_constraintTop_toBottomOf="@id/passwordText"
-        app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginTop="20dp"
-        android:layout_marginLeft="50dp"
-        android:backgroundTint="@color/white"
-        android:onClick="signInClick"
-        android:text="Sign In"
-        android:textColor="@color/black"></Button>
+        <EditText
+            android:id="@+id/passwordText"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_margin="10dp"
+            android:layout_weight="1"
+            android:background="@drawable/empty_border"
+            android:padding="6dp"
+            android:textColorHint="@color/purple_500"
+            android:hint="Password"
+            android:inputType="textPassword"
+           />
 
-    <Button
-        android:id="@+id/signUpButton"
-        android:layout_width="100dp"
-        android:layout_height="50dp"
-        app:layout_constraintTop_toBottomOf="@id/passwordText"
-        app:layout_constraintStart_toEndOf="@id/signInButton"
-        android:layout_marginTop="20dp"
-        android:layout_marginLeft="100dp"
-        android:backgroundTint="@color/white"
-        android:onClick="signUpClick"
-        android:text="Sign Up"
-        android:textColor="@color/black"></Button>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:weightSum="4"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+            <Button
+                android:id="@+id/signInButton"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="2"
+
+android:layout_margin="10dp"
+                android:background="@drawable/border_radius"
+                android:backgroundTint="@color/white"
+                android:onClick="signInClick"
+                android:text="Sign In"
+                android:textColor="@color/white"></Button>
+
+            <Button
+                android:id="@+id/signUpButton"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="2"
+
+                android:layout_margin="10dp"
+                android:background="@drawable/border_radius"
+
+                android:backgroundTint="@color/white"
+                android:onClick="signUpClick"
+                android:text="Sign Up"
+                android:textColor="@color/white"></Button>
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="7"
+            app:srcCompat="@drawable/welcome" />
+
+
+    </LinearLayout>
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
