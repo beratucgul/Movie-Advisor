@@ -65,6 +65,11 @@ public class FeedActivity extends AppCompatActivity {
             startActivity(intent);
             finish();
         }
+
+        else if (item.getItemId() == R.id.profile) {
+            Intent profileIntent = new Intent(FeedActivity.this, userProfilePage.class);
+            startActivity(profileIntent);
+        }
         return super.onOptionsItemSelected(item);
     }
 
