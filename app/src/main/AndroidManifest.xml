@@ -12,7 +12,6 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MovieAdvisor">
-        <activity android:name=".userProfilePage"></activity>
         <activity android:name=".UploadActivity" />
         <activity android:name=".FeedActivity" />
         <activity android:name=".SignUpActivity">
