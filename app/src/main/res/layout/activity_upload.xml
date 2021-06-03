@@ -62,7 +62,7 @@
                     android:layout_weight="2"
                     android:background="@color/purple_500"
                     android:gravity="center"
-                    android:text="Filmin Adı "
+                    android:text="Movie Name "
                     android:textColor="@color/white"></TextView>
                 <EditText
                     android:id="@+id/movieName"
@@ -93,7 +93,7 @@
                     android:layout_weight="2"
                     android:background="@color/purple_500"
                     android:gravity="center"
-                    android:text="Filmin Türü "
+                    android:text="Movie Type "
                     android:textColor="@color/white"></TextView>
 
                 <Spinner
@@ -117,7 +117,7 @@
             android:textColorHint="@color/purple_200"
 
 
-            android:hint="Filmin Konusu" />
+            android:hint="Movie Topic" />
 
         <EditText
             android:id="@+id/movieComment"
@@ -137,7 +137,9 @@
             android:layout_height="0dp"
             android:layout_weight="1"
             android:text="Share Your Movie !"
-            android:onClick="upload"/>
+            android:onClick="upload"
+            android:layout_marginLeft="4dp"
+            android:layout_marginRight="4dp"/>
 
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
