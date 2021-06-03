@@ -59,7 +59,7 @@ public class UploadActivity extends AppCompatActivity {
 
 
         String[] movieTypes = new String[] {
-            "Action", "Adventure","Horror","Comedy"
+            "Action", "Adventure","Horror","Comedy", "Sci-fi", "Romantic"
         };
         movieType = findViewById(R.id.movieType);
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, movieTypes);
@@ -108,7 +108,7 @@ public class UploadActivity extends AppCompatActivity {
                 Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
                 startActivityForResult(intent,2);
             } else {
-                Toast.makeText(this, "İzin Reddedildi ..!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Access Denied!", Toast.LENGTH_SHORT).show();
             }
         }
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
@@ -150,7 +150,7 @@ public class UploadActivity extends AppCompatActivity {
             storageReference.child(imageId).putFile(imageUri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                 @Override
                 public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                    Toast.makeText(UploadActivity.this, "Başarılı", Toast.LENGTH_LONG).show();
+                    Toast.makeText(UploadActivity.this, "Success!!", Toast.LENGTH_LONG).show();
 
                     StorageReference reference = FirebaseStorage.getInstance().getReference(imageId);
                     reference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
